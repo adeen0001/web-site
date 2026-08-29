@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Perfect Day ✨</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+
+  <!-- fonts - swapped to dancing script for headings, poppins for body text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <!-- keeping this super simple, sticks to top with a blurred bg -->
+  <nav class="nav" id="mainNav">
+    <div class="nav-inner">
+      <a href="#top" class="logo">✨ Perfect Day</a>
+      <ul class="nav-links">
+        <li><a href="#notes">Notes</a></li>
+        <li><a href="#timeline">The Day</a></li>
+        <li><a href="#mood">Mood</a></li>
+        <li><a href="#quote">Quote</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <header class="hero" id="top">
+    <!-- a couple of floaty blobs just for texture, purely decorative -->
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+
+    <div class="hero-content fade-in">
+      <p class="eyebrow-text">a little digital diary for</p>
+      <h1 class="hero-heading">THE PERFECT DAY</h1>
+      <p class="hero-sub">Plan it. Live it. Remember it.</p>
+      <a href="#timeline" class="btn-cta">Start Your Day</a>
+    </div>
+
+    <!-- little scroll hint, not strictly necessary but i think it's cute -->
+    <div class="scroll-hint">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </header>
+
+  <!-- ===================== STICKY NOTES / CORKBOARD ===================== -->
+  <section class="notes-section" id="notes">
+    <h2 class="section-heading fade-in">My Perfect Day Notes</h2>
+    <p class="section-sub fade-in">jot down whatever your perfect day looks like, drag the notes around, they'll still be here later</p>
+
+    <div class="notes-toolbar fade-in">
+      <button class="btn-cta btn-add-note" id="addNoteBtn">+ Add New Note</button>
+    </div>
+
+    <!-- this is the corkboard itself, notes get absolutely positioned inside it -->
+    <div class="corkboard" id="corkboard">
+      <!-- notes get injected here by js, nothing hardcoded -->
+    </div>
+  </section>
+
+  <!-- ===================== TIMELINE / DAY CARDS ===================== -->
+  <section class="timeline-section" id="timeline">
+    <h2 class="section-heading fade-in">design your perfect day</h2>
+    <p class="section-sub fade-in">three little chapters, however you want to fill them</p>
+
+    <div class="day-cards">
+
+      <!-- morning -->
+      <div class="glass-card cardMorning fade-in">
+        <div class="card-icon">🌤️</div>
+        <h3>Morning</h3>
+        <p class="card-blurb">Slow start, warm drink, a page of your journal before the world wakes up.</p>
+        <ul class="mini-list">
+          <li>stretch for 5 mins</li>
+          <li>drink water first</li>
+          <li>write 1 intention</li>
+        </ul>
+      </div>
+
+      <!-- afternoon -->
+      <div class="glass-card card-afternoon fade-in">
+        <div class="card-icon">☕</div>
+        <h3>Afternoon</h3>
+        <p class="card-blurb">The doing hours. Pick one thing that actually matters and give it your focus.</p>
+        <ul class="mini-list">
+          <li>eat something real</li>
+          <li>step outside briefly</li>
+          <li>tackle the big task</li>
+        </ul>
+      </div>
+
+      <!-- evening -->
+      <div class="glass-card card_evening fade-in">
+        <div class="card-icon">🌙</div>
+        <h3>Evening</h3>
+        <p class="card-blurb">Wind down slow. Dim the lights, put the phone away a little earlier than usual.</p>
+        <ul class="mini-list">
+          <li>tidy for 10 mins</li>
+          <li>gratitude - 3 things</li>
+          <li>lights out by 11</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== MOOD TRACKER ===================== -->
+  <section class="mood-section" id="mood">
+    <div class="glass-card mood-card fade-in">
+      <h2 class="section-heading">how are we feeling today?</h2>
+      <p class="section-sub">tap one, i'll remember it for you</p>
+
+      <div class="mood-picker">
+        <button class="mood-btn" data-mood="amazing" title="Amazing">🤩</button>
+        <button class="mood-btn" data-mood="happy" title="Happy">😊</button>
+        <button class="mood-btn" data-mood="meh" title="Meh">😐</button>
+        <button class="mood-btn" data-mood="tired" title="Tired">😴</button>
+        <button class="mood-btn" data-mood="stressed" title="Stressed">😣</button>
+      </div>
+
+      <p class="mood-status" id="moodStatus"><!-- filled in by js --></p>
+    </div>
+  </section>
+
+  <!-- ===================== DAILY QUOTE ===================== -->
+  <section class="quote-section" id="quote">
+    <div class="glass-card quote-card fade-in">
+      <span class="quote-mark">“</span>
+      <p class="quote-text" id="quoteText">loading a little inspiration...</p>
+      <p class="quote-by" id="quoteBy"></p>
+      <button class="btn-outline" id="newQuoteBtn">New Quote 🔁</button>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <p>Made with ♡ for better days</p>
+  </footer>
+
+  <!-- toast lives here, hidden until JS shows it -->
+  <div class="toast" id="toast">Mood saved for today!</div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
